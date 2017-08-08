@@ -1,0 +1,36 @@
+# Customized making directory for simulation
+
+#!/bin/sh
+
+# check the input is correct
+if [ $# -lt 1 ] || [ $# -gt 2 ]; then
+    echo Error. Usage: makedir file_name [executable]
+    exit 1
+fi
+
+# get the executable name
+if [ $# -eq 1 ]; then
+    exe=dandelion          # default executable name
+else
+    exe=$2                 # customized executable name
+fi
+
+# check if the directory has existed
+if [ -d $1 ]; then
+    echo Aborted. Directory $1 has existed
+    exit 1
+fi
+
+# build new directory and its sub-directories
+mkdir $1
+cd $1
+mkdir VTK
+mkdir SAVE
+mkdir Tecplot
+
+# copy the excutable and the relevant source code
+# to this directory
+cp ../$exe .
+cp ../*.f90 .
+
+exit 0
