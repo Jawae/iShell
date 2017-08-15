@@ -27,10 +27,12 @@ cd $1
 mkdir VTK
 mkdir SAVE
 mkdir Tecplot
+mkdir src
 
 # copy the excutable and the relevant source code
 # to this directory
 cp ../$exe .
-cp ../*.f90 .
+cp ../*.f90 src
+cp ../*.mod ../*.o .
 
 exit 0
