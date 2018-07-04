@@ -14,6 +14,8 @@ if [ $# -gt 0 ]; then
 	    general+=("$fname*.pdf")       # append to general pool
 	fi
     done
+else
+    pdf="*.pdf"                            # get all .pdf files
 fi
 	     
 # 1. crop .pdf files
